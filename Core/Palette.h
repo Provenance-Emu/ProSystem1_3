@@ -28,7 +28,6 @@
 #define NULL 0
 
 #include <String>
-#include "Logger.h"
 
 typedef unsigned char byte;
 typedef unsigned short word;

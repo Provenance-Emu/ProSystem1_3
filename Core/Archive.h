@@ -26,7 +26,6 @@
 #define ARCHIVE_H
 
 #include <String>
-#include "Logger.h"
 #include "Cartridge.h"
 #include "Zip.h"
 #include "Unzip.h"

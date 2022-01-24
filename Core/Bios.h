@@ -29,7 +29,6 @@
 #include <String>
 #include "Memory.h"
 #include "Archive.h"
-#include "Logger.h"
 
 typedef unsigned char byte;
 typedef unsigned short word;

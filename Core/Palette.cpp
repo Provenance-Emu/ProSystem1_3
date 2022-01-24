@@ -98,21 +98,16 @@ byte palette_data[PALETTE_SIZE] = {
 // ----------------------------------------------------------------------------
 bool palette_Load(std::string filename) {
   if(filename.empty( ) || filename.length( ) == 0) {
-    logger_LogError(IDS_PALETTE1,"");
     return false;
   }
   
-  logger_LogInfo(IDS_PALETTE2,filename);
-
   FILE* file = fopen(filename.c_str( ), "rb");
   if(file == NULL) {
-    logger_LogError(IDS_PALETTE3,filename);
     return false;
   }  
   
   if(fread(palette_data, 1, PALETTE_SIZE, file) != PALETTE_SIZE) {
     fclose(file);
-    logger_LogError(IDS_PALETTE4,"");
     return false;
   }
   

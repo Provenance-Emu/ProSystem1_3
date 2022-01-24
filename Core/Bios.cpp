@@ -35,38 +35,38 @@ static word bios_size = 0;
 // ----------------------------------------------------------------------------
 bool bios_Load(std::string filename) {
   if(filename.empty( ) || filename.length( ) == 0) {
-    logger_LogError(IDS_BIOS1, "");
+    
     return false;
   }
   
   bios_Release( );
-  logger_LogInfo(IDS_BIOS2, filename);
+  
 
   bios_size = archive_GetUncompressedFileSize(filename);
   if(bios_size == 0) {
     FILE* file = fopen(filename.c_str( ), "rb");
     if(file == NULL) {
-      logger_LogError(IDS_BIOS3, filename);
+      
       return false;
     } 
   
     if(fseek(file, 0, SEEK_END)) {
       fclose(file);
-      logger_LogError(IDS_BIOS4,"");
+      
       return false;
     }
   
     bios_size = ftell(file);
     if(fseek(file, 0, SEEK_SET)) {
       fclose(file);
-      logger_LogError(IDS_BIOS5,"");
+      
       return false;
     }
   
     bios_data = new byte[bios_size];
     if(fread(bios_data, 1, bios_size, file) != bios_size && ferror(file)) {
       fclose(file);
-      logger_LogError(IDS_BIOS6,"");
+      
       bios_Release( );
       return false;
     }

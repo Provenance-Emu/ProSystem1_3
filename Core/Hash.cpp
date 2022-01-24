@@ -213,7 +213,7 @@ std::string hash_Compute(const byte* source, uint length) {
     }
   } 
   else {
-    for(index = 0; index < count - 8; index++) {
+    for(uint index = 0; index < count - 8; index++) {
       ptr[index] = 0;
     }
   }
@@ -225,7 +225,7 @@ std::string hash_Compute(const byte* source, uint length) {
   
   byte digest[16];
   byte* bufferptr = (byte*)buffer1;
-  for(index = 0; index < 16; index++) {
+  for(uint index = 0; index < 16; index++) {
     digest[index] = bufferptr[index];
   }
 
